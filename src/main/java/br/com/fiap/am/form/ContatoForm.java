@@ -1,4 +1,4 @@
-package br.com.fiap.form;
+package br.com.fiap.am.form;
 
 public class ContatoForm {
 	

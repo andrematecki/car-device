@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 
 import br.com.fiap.am.bean.ContatoBean;
 import br.com.fiap.am.dao.ContatoDAO;
-import br.com.fiap.form.ContatoForm;
+import br.com.fiap.am.form.ContatoForm;
 
 @ManagedBean(name="contatoAction")
 public class ContatoAction {
