@@ -3,15 +3,23 @@ package br.com.fiap.am.action;
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 
 import br.com.fiap.am.bean.ContatoBean;
+import br.com.fiap.am.bean.UsuarioBean;
 import br.com.fiap.am.dao.ContatoDAO;
 import br.com.fiap.am.form.ContatoForm;
+import br.com.fiap.am.session.LoginSession;
 
 @ManagedBean(name="contatoAction")
 public class ContatoAction {
 
 	private ContatoForm form;
+
+	@ManagedProperty(value="#{loginSession}")
+	private LoginSession login;
+
+
 
 	public ContatoAction(){
 		form = new ContatoForm();
@@ -25,10 +33,22 @@ public class ContatoAction {
 		this.form = form;
 	}
 
+	public void testat(){
+
+		@SuppressWarnings("unused")
+		int i = 0;
+
+		login.setUsuario(new UsuarioBean());
+	}
+
 	public void salvarContato(){
 		new ContatoDAO().insert(form);
 		int teste;
 		ArrayList<ContatoBean> lista = new ContatoDAO().list();
+	}
+
+	public void setLogin(LoginSession login) {
+		this.login = login;
 	}
 
 
