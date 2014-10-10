@@ -57,11 +57,14 @@
                         </li>
                         <ui:insert name="menuContato"><li><h:link outcome="contato">Contato</h:link></li></ui:insert>
                         <ui:insert name="menuFormulario"><li><h:link outcome="formulario">Formulario</h:link></li></ui:insert>
+                        <li><p:commandLink value="Login" onclick="PF('modalLogin').show();"></p:commandLink></li>
                     </ul>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
 
     </header><!--/header-->
+    
+ 	<ui:include src="/layout/login.xhtml" />
 
 </ui:composition>

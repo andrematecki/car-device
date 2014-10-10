@@ -25,4 +25,13 @@
 	    <param-value>bootstrap</param-value>
   	</context-param>
 
+	 <filter>
+      <filter-name>LoginFiltro</filter-name>
+      <filter-class>br.com.fiap.am.filtros.LoginFiltro</filter-class>    
+  </filter>
+  <filter-mapping>
+      <filter-name>LoginFiltro</filter-name>
+      <url-pattern>/private/*</url-pattern>
+  </filter-mapping>
+
 </web-app>

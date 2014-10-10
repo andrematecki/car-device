@@ -10,7 +10,6 @@ public class ContatoForm {
 	private String mensagem;
 	
 	
-	
 	public String getNome() {
 		return nome;
 	}
