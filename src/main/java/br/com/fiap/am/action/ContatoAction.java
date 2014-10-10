@@ -12,7 +12,7 @@ import br.com.fiap.am.form.ContatoForm;
 public class ContatoAction {
 
 	private ContatoForm form;
-	
+
 	public ContatoAction(){
 		form = new ContatoForm();
 	}
@@ -24,12 +24,12 @@ public class ContatoAction {
 	public void setForm(ContatoForm form) {
 		this.form = form;
 	}
-	
+
 	public void salvarContato(){
 		new ContatoDAO().insert(form);
-		
+		int teste;
 		ArrayList<ContatoBean> lista = new ContatoDAO().list();
 	}
-	
-	
+
+
 }
