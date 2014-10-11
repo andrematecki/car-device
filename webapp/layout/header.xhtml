@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-xs-4">
-                        <div class="top-number"><p><i class="fa fa-phone-square"></i>  +0123 456 70 90</p></div>
+                        <div class="top-number"><p><i class="fa fa-phone-square"></i>  +55 11 3385-8010</p></div>
                     </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
@@ -38,33 +38,54 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <h:link styleClass="navbar-brand" outcome="index">
-                    	<img src="images/logo.png" alt="logo" />
+                    <h:link styleClass="navbar-brand" outcome="/index">
+                    	<p:graphicImage library="images" name="logo.png" />
                     </h:link>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <ui:insert name="menuHome"><li><h:link outcome="index">Home</h:link></li></ui:insert>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Páginas <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="blog-item.html">Blog Single</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="shortcodes.html">Shortcodes</a></li>
-                            </ul>
-                        </li>
-                        <ui:insert name="menuContato"><li><h:link outcome="contato">Contato</h:link></li></ui:insert>
-                        <ui:insert name="menuFormulario"><li><h:link outcome="formulario">Formulario</h:link></li></ui:insert>
-                        <li><p:commandLink value="Login" onclick="PF('modalLogin').show();"></p:commandLink></li>
+                        <ui:insert name="menuHome"><li><h:link outcome="/index">Home</h:link></li></ui:insert>
+
+                        <ui:insert name="menuEmpresa">
+                        	<li class="dropdown">
+	                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Empresa<i class="fa fa-angle-down"></i></a>
+	                            <ul class="dropdown-menu">
+	                                <li><h:link outcome="/empresa">Quem somos</h:link></li>
+	                                <li><h:link outcome="/produto">Nosso produto</h:link></li>
+	                            </ul>
+	                        </li>
+                        </ui:insert>
+                        <ui:insert name="menuFeed"><li><h:link outcome="/feed">Noticias</h:link></li></ui:insert>
+                        <ui:insert name="menuInvestidor"><li><h:link outcome="/investidor">Investidores</h:link></li></ui:insert>
+                        <ui:insert name="menuContato"><li><h:link outcome="/contato">Contato</h:link></li></ui:insert>
+
+                        <h:panelGroup rendered="#{loginSession.logged}">
+                        	<li><p:commandLink process="@this" 	value="Logout" action="#{loginAction.logout}" /></li>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{!loginSession.logged}">
+                        	<li><p:commandLink value="Login" onclick="PF('dlg').show();"></p:commandLink></li>
+                        </h:panelGroup>
+
+                        <h:panelGroup rendered="#{loginSession.logged}">
+	                        <li class="dropdown active">
+	                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrativo<i class="fa fa-angle-down"></i></a>
+	                            <ul class="dropdown-menu">
+	                            	<li><h:link outcome="/private/home">Inicio</h:link></li>
+	                                <li><h:link outcome="/private/contatos">Contatos</h:link></li>
+	                                <li><h:link outcome="/private/feed">Noticias</h:link></li>
+	                                <li><h:link outcome="/private/investidores">Investidores</h:link></li>
+	                                <li><h:link outcome="/private/status">Status</h:link></li>
+	                            </ul>
+	                       	</li>
+                       	</h:panelGroup>
                     </ul>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
 
     </header><!--/header-->
-    
+
  	<ui:include src="/layout/login.xhtml" />
 
 </ui:composition>

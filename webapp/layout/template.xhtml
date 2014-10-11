@@ -16,7 +16,8 @@
 	<!-- core CSS -->
 
 	<h:outputStylesheet name="bootstrap.min.css" library="css" />
-	<link href="resources/css/font-awesome.min.css" rel="stylesheet"/>
+	<!-- <link href="resources/css/font-awesome.min.css" rel="stylesheet"/> -->
+	<h:outputStylesheet name="font-awesome.min.css" library="css" />
 	<h:outputStylesheet name="animate.min.css" library="css" />
 	<h:outputStylesheet name="prettyPhoto.css" library="css" />
 	<h:outputStylesheet name="main.css" library="css" />
@@ -35,6 +36,7 @@
 	<h:outputScript name="jquery.isotope.min.js" library="js"></h:outputScript>
 	<h:outputScript name="main.js" library="js"></h:outputScript>
 	<h:outputScript name="wow.min.js" library="js"></h:outputScript>
+	<h:outputScript 	name="utils.js" 				library="script" />
 <!--
 	<link rel="shortcut icon" href="resources/images/ico/favicon.ico" />
 	<link rel="apple-touch-icon-precomposed" sizes="144x144"
@@ -49,6 +51,19 @@
  -->
 	<ui:insert name="head"/>
 
+<script type="text/javascript">
+    function handleLoginRequest(xhr, status, args) {
+        if(args.validationFailed || !args.loggedIn) {
+            PF('dlg').jq.effect("shake", {times:5}, 100);
+        }
+        else {
+            PF('dlg').hide();
+            $('#loginLink').fadeOut();
+            location.href = "private/home.xhtml";
+        }
+    }
+
+</script>
 </h:head>
 
 <h:body class="homepage">

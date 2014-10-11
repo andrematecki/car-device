@@ -23,17 +23,15 @@ public class LoginFiltro implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
-		 
+
+
         LoginSession login = (LoginSession)((HttpServletRequest)request).getSession().getAttribute("loginSession");
 
         if (login == null || !login.isLogged()) {
-          //String contextPath = ((HttpServletRequest) request).getContextPath();
-          //((HttpServletResponse)response).sendRedirect(contextPath + "/index.xhtml");
+          String contextPath = ((HttpServletRequest) request).getContextPath();
+          ((HttpServletResponse)response).sendRedirect(contextPath + "/index.xhtml");
         } else {
-        	 String contextPath = ((HttpServletRequest) request).getContextPath();
-        	((HttpServletResponse)response).sendRedirect(contextPath + "/index.xhtml");
-             //chain.doFilter(request, response);
+            chain.doFilter(request, response);
         }
 	}
 

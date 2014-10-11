@@ -15,41 +15,34 @@ import br.com.fiap.am.session.LoginSession;
 public class ContatoAction {
 
 	private ContatoForm form;
-
 	@ManagedProperty(value="#{loginSession}")
 	private LoginSession login;
 
 
-
 	public ContatoAction(){
 		form = new ContatoForm();
+		form.setContato(new ContatoBean());
+		form.setContatos(new ArrayList<ContatoBean>());
 	}
 
-	public ContatoForm getForm() {
-		return form;
-	}
 
-	public void setForm(ContatoForm form) {
-		this.form = form;
-	}
-
-	public void testat(){
-
-		@SuppressWarnings("unused")
-		int i = 0;
-
-		login.setUsuario(new UsuarioBean());
-	}
 
 	public void salvarContato(){
-		new ContatoDAO().insert(form);
-		int teste;
-		ArrayList<ContatoBean> lista = new ContatoDAO().list();
+		new ContatoDAO().insert(form.getContato());
 	}
+
+	public void listarContatos(){
+		form.setContatos(new ContatoDAO().list());
+	}
+
 
 	public void setLogin(LoginSession login) {
 		this.login = login;
 	}
-
-
+	public ContatoForm getForm() {
+		return form;
+	}
+	public void setForm(ContatoForm form) {
+		this.form = form;
+	}
 }

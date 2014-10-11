@@ -1,52 +1,23 @@
 package br.com.fiap.am.form;
 
+import java.util.ArrayList;
+
+import br.com.fiap.am.bean.ContatoBean;
+
 public class ContatoForm {
-	
-	private String nome;
-	private String email;
-	private String telefone;
-	private String cia;
-	private String titulo;
-	private String mensagem;
-	
-	
-	public String getNome() {
-		return nome;
+	private ArrayList<ContatoBean> contatos;
+	private ContatoBean contato;
+
+	public ArrayList<ContatoBean> getContatos() {
+		return contatos;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setContatos(ArrayList<ContatoBean> contatos) {
+		this.contatos = contatos;
 	}
-	public String getEmail() {
-		return email;
+	public ContatoBean getContato() {
+		return contato;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setContato(ContatoBean contato) {
+		this.contato = contato;
 	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-	public String getCia() {
-		return cia;
-	}
-	public void setCia(String cia) {
-		this.cia = cia;
-	}
-	public String getTitulo() {
-		return titulo;
-	}
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-	public String getMensagem() {
-		return mensagem;
-	}
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
-	}
-	
-	
-	
 }

@@ -27,11 +27,22 @@
 
 	 <filter>
       <filter-name>LoginFiltro</filter-name>
-      <filter-class>br.com.fiap.am.filtros.LoginFiltro</filter-class>    
+      <filter-class>br.com.fiap.am.filtros.LoginFiltro</filter-class>
   </filter>
   <filter-mapping>
       <filter-name>LoginFiltro</filter-name>
       <url-pattern>/private/*</url-pattern>
   </filter-mapping>
+
+  <mime-mapping>
+        <extension>ttf</extension>
+        <mime-type>application/x-font-ttf</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>woff</extension>
+        <mime-type>application/x-font-woff</mime-type>
+    </mime-mapping>
+
 
 </web-app>

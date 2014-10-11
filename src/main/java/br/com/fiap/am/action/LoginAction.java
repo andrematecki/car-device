@@ -1,7 +1,16 @@
 package br.com.fiap.am.action;
 
+import java.io.IOException;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.FacesEvent;
+import javax.servlet.http.HttpServletResponse;
+
+import org.primefaces.context.RequestContext;
 
 import br.com.fiap.am.bean.UsuarioBean;
 import br.com.fiap.am.form.LoginForm;
@@ -11,27 +20,45 @@ import br.com.fiap.am.session.LoginSession;
 public class LoginAction {
 
 	private LoginForm form;
-	
+
 	@ManagedProperty(value="#{loginSession}")
 	private LoginSession login;
-	
+
 	public LoginAction(){
 		form = new LoginForm();
 	}
 
-	public String doLogin(){
-		if(form.getLogin().equals("admin") && form.getSenha().equals("123")){
-			UsuarioBean bean = new UsuarioBean();
+	 public void login(FacesEvent event) {
+        RequestContext context = RequestContext.getCurrentInstance();
+        FacesMessage message = null;
+        boolean loggedIn = false;
+
+        if(form.getLogin() != null && form.getLogin().equals("admin") && form.getSenha() != null && form.getSenha().equals("admin")) {
+            loggedIn = true;
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Ben vindo ", form.getLogin());
+
+            UsuarioBean bean = new UsuarioBean();
 			bean.setNome(form.getLogin());
-			
+
 			login.setLogged(true);
 			login.setUsuario(bean);
-			
-			return "index";
-		}
-		return null;
+
+        } else {
+            loggedIn = false;
+            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erro no login", "Credenciais invalidas");
+        }
+
+        FacesContext.getCurrentInstance().addMessage(null, message);
+        context.addCallbackParam("loggedIn", loggedIn);
+    }
+
+	public String logout() {
+		login.setLogged(false);
+		login.setUsuario(null);
+
+		return "/index.xhtml?faces-redirect=true";
 	}
-	
+
 	public LoginForm getForm() {
 		return form;
 	}
@@ -43,5 +70,5 @@ public class LoginAction {
 	public void setLogin(LoginSession login) {
 		this.login = login;
 	}
-	
+
 }

@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
+
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{contatoAction.listarContatos}" />
+	</f:metadata>
+
+	<ui:define name="cabecalho">Contatos</ui:define>
+	<ui:define name="descricao">Lista de pessoas que realizaram contato através do site principal</ui:define>
+
+	<ui:define name="conteudo">
+		<p:dataTable var="contato" value="#{contatoAction.form.contatos}">
+
+		    <p:column headerText="Nome">
+		        <h:outputText value="#{contato.nome}" />
+		    </p:column>
+
+		    <p:column headerText="Email">
+		        <h:outputText value="#{contato.email}" />
+		    </p:column>
+
+		    <p:column headerText="Titulo">
+		        <h:outputText value="#{contato.titulo}" />
+		    </p:column>
+
+		    <p:column headerText="Mensagem">
+		        <h:outputText value="#{contato.mensagem}" />
+		    </p:column>
+
+		</p:dataTable>
+	</ui:define>
+
+	<ui:define name="bottom" />
+
+</ui:composition>

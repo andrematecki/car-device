@@ -6,42 +6,24 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
+	<h:form>
+		<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
 
-   
-    <p:dialog header="Efetuar login" 
-    	widgetVar="modalLogin" 
-    	height="180"
-    	width="250"
-    	resizable="false" 
-    	modal="true">
-    	<h:form id="formLogin">
-    		
-    		<table id="tableLogin">
-    			<tr>
-    				<td>Login: </td>
-    				<td><p:inputText id="txtLogin" required="true"
-    						value="#{loginAction.form.login}" 
-    						requiredMessage="Campo obrigatório"/></td>
-    			</tr>
-    			<tr>
-    				<td colspan="2"><p:message for="txtLogin" /></td>
-   				</tr>
-    			<tr>
-    				<td>Senha: </td>
-    				<td><p:password id="txtSenha" required="true"
-    						value="#{loginAction.form.senha}" 
-    						requiredMessage="Campo obrigatório"/></td>
-    			</tr>
-    			<tr>
-    				<td colspan="2"><p:message for="txtSenha" /></td>
-    			</tr>
-    			<tr align="right">
-    				<td colspan="2"><p:commandButton value="Login" action="#{loginAction.doLogin}" update="formLogin"/></td>
-    			</tr>
-    		</table>
-    		
-    	</h:form>
-    	
-	</p:dialog>
-	
+	    <p:dialog header="Login" widgetVar="dlg" resizable="false" modal="true">
+	        <h:panelGrid columns="2" cellpadding="5">
+	            <h:outputLabel for="username" value="Username:" />
+	            <p:inputText id="username" value="#{loginAction.form.login}" required="true" label="username" requiredMessage="Login obrigatório"/>
+
+	            <h:outputLabel for="password" value="Password:" />
+	            <p:password id="password" value="#{loginAction.form.senha}" required="true" label="password" requiredMessage="Senha obrigatória" />
+
+	            <f:facet name="footer">
+	                <p:commandButton value="Login" update="growl" actionListener="#{loginAction.login}"
+	                                 oncomplete="handleLoginRequest(xhr, status, args)" />
+	            </f:facet>
+	        </h:panelGrid>
+	    </p:dialog>
+	</h:form>
+
+
 	</ui:composition>
