@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import br.com.fiap.am.bean.ContatoBean;
@@ -14,6 +15,7 @@ import br.com.fiap.am.form.ContatoForm;
 import br.com.fiap.am.session.LoginSession;
 
 @ManagedBean(name="contatoAction")
+@ViewScoped
 public class ContatoAction {
 
 	private ContatoForm form;
@@ -25,6 +27,7 @@ public class ContatoAction {
 		form = new ContatoForm();
 		form.setContato(new ContatoBean());
 		form.setContatos(new ArrayList<ContatoBean>());
+		//form.setContatoSelecionado(new ContatoBean());
 	}
 
 

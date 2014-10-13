@@ -39,4 +39,6 @@ public class ContatoForm {
 	public void setContatoSelecionado(ContatoBean contatoSelecionado) {
 		this.contatoSelecionado = contatoSelecionado;
 	}
+
+
 }

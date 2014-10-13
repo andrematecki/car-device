@@ -8,6 +8,10 @@
 		<f:event type="preRenderView" listener="#{contatoAction.listarContatos}" />
 	</f:metadata>
 
+	<ui:define name="head">
+
+	</ui:define>
+
 	<ui:define name="cabecalho">Contatos</ui:define>
 	<ui:define name="descricao">Lista de pessoas que realizaram contato através do site principal</ui:define>
 
@@ -20,7 +24,7 @@
 			        <h:outputText value="#{contato.nome}" />
 			    </p:column>
 
-			    <p:column headerText="Email">
+				<p:column headerText="Email">
 			        <h:outputText value="#{contato.email}" />
 			    </p:column>
 
@@ -28,15 +32,7 @@
 			        <h:outputText value="#{contato.titulo}" />
 			    </p:column>
 
-			    <p:column headerText="Mensagem">
-			        <h:outputText value="#{contato.mensagem}" />
-			    </p:column>
-
-			    <p:column headerText="Telefone">
-			        <h:outputText value="#{contato.telefone}" />
-			    </p:column>
-
-				<p:column style="width:32px;text-align: center">
+				<p:column style="width:100px;text-align: center">
 		            <p:commandButton update=":formContatos:contatoDetalhe" oncomplete="PF('contatoDialog').show()" icon="ui-icon-search" title="View">
 		                <f:setPropertyActionListener value="#{contato}" target="#{contatoAction.form.contatoSelecionado}" />
 		            </p:commandButton>
@@ -44,11 +40,38 @@
 
 			</p:dataTable>
 
-			    <p:dialog header="Contato detalhe" widgetVar="contatoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-		        	<p:outputPanel id="contatoDetalhe" style="text-align:center;">
+			    <p:dialog header="Contato detalhe" widgetVar="contatoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false"
+			    	style="min-width:400px; max-width: 800px;">
+		        	<p:outputPanel id="contatoDetalhe">
 
-		                <h:outputText value="Id:" />
-		                <h:outputText value="#{contatoAction.form.contatoSelecionado.nome}" />
+
+
+						<table>
+							<tr>
+								<td><h:outputText value="Nome:" /></td>
+								<td><h:outputText value="#{contatoAction.form.contatoSelecionado.nome}" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Email:" /></td>
+								<td><h:outputText value="#{contatoAction.form.contatoSelecionado.email}" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Telefone:" /></td>
+								<td><h:outputText value="#{contatoAction.form.contatoSelecionado.telefone}" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Nome da Companhia:" /></td>
+								<td><h:outputText value="#{contatoAction.form.contatoSelecionado.cia}" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Títitulo:" /></td>
+								<td><h:outputText value="#{contatoAction.form.contatoSelecionado.titulo}" /></td>
+							</tr>
+							<tr>
+								<td><h:outputText value="Mensagem:" /></td>
+								<td><h:outputText value="#{contatoAction.form.contatoSelecionado.mensagem}" /></td>
+							</tr>
+						</table>
 
 		        </p:outputPanel>
 		    </p:dialog>
