@@ -13,103 +13,88 @@
 	</ui:define>
 
 	<ui:define name="conteudoHome">
-		 <section id="contact-info">
-        <div class="center">
-            <h2>How to Reach Us?</h2>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-        </div>
-        <div class="gmap-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-5 text-center">
-                        <div class="gmap">
-                            <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=JoomShaper,+Dhaka,+Dhaka+Division,+Bangladesh&amp;aq=0&amp;oq=joomshaper&amp;sll=37.0625,-95.677068&amp;sspn=42.766543,80.332031&amp;ie=UTF8&amp;hq=JoomShaper,&amp;hnear=Dhaka,+Dhaka+Division,+Bangladesh&amp;ll=23.73854,90.385504&amp;spn=0.001515,0.002452&amp;t=m&amp;z=14&amp;iwloc=A&amp;cid=1073661719450182870&amp;output=embed"></iframe>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-7 map-content">
-                        <ul class="row">
-                            <li class="col-sm-6">
-                                <address>
-                                    <h5>Head Office</h5>
-                                    <p>1537 Flint Street <br/>
-                                    Tumon, MP 96911</p>
-                                    <p>Phone:670-898-2847 <br/>
-                                    Email Address:info@domain.com</p>
-                                </address>
-
-                                <address>
-                                    <h5>Zonal Office</h5>
-                                    <p>1537 Flint Street <br/>
-                                    Tumon, MP 96911</p>
-                                    <p>Phone:670-898-2847 <br/>
-                                    Email Address:info@domain.com</p>
-                                </address>
-                            </li>
-
-
-                            <li class="col-sm-6">
-                                <address>
-                                    <h5>Zone#2 Office</h5>
-                                    <p>1537 Flint Street <br/>
-                                    Tumon, MP 96911</p>
-                                    <p>Phone:670-898-2847 <br/>
-                                    Email Address:info@domain.com</p>
-                                </address>
-
-                                <address>
-                                    <h5>Zone#3 Office</h5>
-                                    <p>1537 Flint Street <br/>
-                                    Tumon, MP 96911</p>
-                                    <p>Phone:670-898-2847 <br/>
-                                    Email Address:info@domain.com</p>
-                                </address>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+		  
+		<section id="contact-info">
+	        <div class="center">
+	            <h2>Como nos achar?</h2>
+	            <p class="lead">Preencha o formulário, entraremos em contato com você</p>
+	        </div>
+	        <div class="gmap-area">
+	            <div class="container">
+	                <div class="row">
+	                    <div class="col-sm-5 text-center">
+	                        <div class="gmap">
+	                            <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=JoomShaper,+Dhaka,+Dhaka+Division,+Bangladesh&amp;aq=0&amp;oq=joomshaper&amp;sll=37.0625,-95.677068&amp;sspn=42.766543,80.332031&amp;ie=UTF8&amp;hq=JoomShaper,&amp;hnear=Dhaka,+Dhaka+Division,+Bangladesh&amp;ll=23.73854,90.385504&amp;spn=0.001515,0.002452&amp;t=m&amp;z=14&amp;iwloc=A&amp;cid=1073661719450182870&amp;output=embed"></iframe>
+	                        </div>
+	                    </div>
+	
+	                    <div class="col-sm-7 map-content">
+	                        <ul class="row">
+	                            <li class="col-sm-6">
+	                                <address>
+	                                    <h5>Faculdade</h5>
+	                                    <p> Av. Lins de Vasconcelos, 1222
+	                                    <br/> Cambuci, São Paulo - SP, 01538-001</p>
+	                                    <p>Telefone: (11) 3385-8010<br/>
+	                                    Email: contato@cardevice.com.br</p>
+	                                </address>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
     </section>  <!--/gmap_area -->
 
      <section id="contact-page">
      <h:form id="formContato">
+     	<p:growl id="mensagem" showDetail="true" sticky="false" life="3000" globalOnly="true"/>
         <div class="container">
             <div class="center">
-                <h2>Drop Your Message</h2>
-                <p class="lead">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2>Deixe sua mensagem</h2>
+                <p class="lead">Preencha os dados</p>
             </div>
             <div class="row contact-wrap">
                 <div class="status alert alert-success" style="display: none"></div>
                     <div class="col-sm-5 col-sm-offset-1">
                         <div class="form-group">
-                            <label>Name *</label>
-                            <p:inputText id="nome" required="true" style="width: 100%" value="#{contatoAction.form.contato.nome}"></p:inputText>
+                            <label>Nome *</label>
+                            <p:inputText id="nome" required="true" style="width: 100%" value="#{contatoAction.form.contato.nome}"
+                            			requiredMessage="Nome obrigatório"
+                            			maxlength="20"/>
                             <p:message for="nome"></p:message>
                         </div>
                         <div class="form-group">
                             <label>Email *</label>
-                            <p:inputText id="email" required="true" style="width: 100%" value="#{contatoAction.form.contato.email}"></p:inputText>
+                            <p:inputText id="email" required="true" style="width: 100%" 
+                            				value="#{contatoAction.form.contato.email}"
+                            				validatorMessage="Email inválido"
+                            				requiredMessage="Email obrigatório"
+                            				maxlength="30">
+                            	<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                            </p:inputText>
                             <p:message for="email"></p:message>
                         </div>
                         <div class="form-group">
-                            <label>Phone</label>
-                            <p:inputText id="fone" style="width: 100%" value="#{contatoAction.form.contato.telefone}"></p:inputText>
+                            <label>Telefone</label>
+                            <p:inputMask id="fone" style="width: 100%" value="#{contatoAction.form.contato.telefone}" mask="(99) 99999-9999" />
                         </div>
                         <div class="form-group">
-                            <label>Company Name</label>
-                            <p:inputText id="cia" style="width: 100%" value="#{contatoAction.form.contato.cia}"></p:inputText>
+                            <label>Nome da companhia</label>
+                            <p:inputText id="cia" style="width: 100%" value="#{contatoAction.form.contato.cia}" />
                         </div>
                     </div>
                     <div class="col-sm-5">
                         <div class="form-group">
-                            <label>Subject *</label>
-                            <p:inputText id="titulo" required="true" style="width: 100%" value="#{contatoAction.form.contato.titulo}" />
+                            <label>Título *</label>
+                            <p:inputText id="titulo" required="true" style="width: 100%" value="#{contatoAction.form.contato.titulo}" 
+                            				requiredMessage="Título é obrigatório"/>
                             <p:message for="titulo"></p:message>
                         </div>
                         <div class="form-group">
-                            <label>Message *</label>
-                            <p:inputTextarea id="msg" required="true" style="width: 100%" rows="8" value="#{contatoAction.form.contato.mensagem}" />
+                            <label>Mensagem *</label>
+                            <p:inputTextarea id="msg" required="true" style="width: 100%" rows="8" value="#{contatoAction.form.contato.mensagem}" 
+                            				requiredMessage="Mensagem é obrigatório"/>
                             <p:message for="msg"></p:message>
                         </div>
                         <div class="form-group">

@@ -12,25 +12,48 @@
 	<ui:define name="descricao">Lista de pessoas que realizaram contato através do site principal</ui:define>
 
 	<ui:define name="conteudo">
-		<p:dataTable var="contato" value="#{contatoAction.form.contatos}">
-
-		    <p:column headerText="Nome">
-		        <h:outputText value="#{contato.nome}" />
-		    </p:column>
-
-		    <p:column headerText="Email">
-		        <h:outputText value="#{contato.email}" />
-		    </p:column>
-
-		    <p:column headerText="Titulo">
-		        <h:outputText value="#{contato.titulo}" />
-		    </p:column>
-
-		    <p:column headerText="Mensagem">
-		        <h:outputText value="#{contato.mensagem}" />
-		    </p:column>
-
-		</p:dataTable>
+		<h:form id="formContatos">
+			
+			<p:dataTable var="contato" value="#{contatoAction.form.contatos}">
+	
+			    <p:column headerText="Nome">
+			        <h:outputText value="#{contato.nome}" />
+			    </p:column>
+	
+			    <p:column headerText="Email">
+			        <h:outputText value="#{contato.email}" />
+			    </p:column>
+	
+			    <p:column headerText="Titulo">
+			        <h:outputText value="#{contato.titulo}" />
+			    </p:column>
+	
+			    <p:column headerText="Mensagem">
+			        <h:outputText value="#{contato.mensagem}" />
+			    </p:column>
+			    
+			    <p:column headerText="Telefone">
+			        <h:outputText value="#{contato.telefone}" />
+			    </p:column>
+				
+				<p:column style="width:32px;text-align: center">
+		            <p:commandButton update=":formContatos:contatoDetalhe" oncomplete="PF('contatoDialog').show()" icon="ui-icon-search" title="View">
+		                <f:setPropertyActionListener value="#{contato}" target="#{contatoAction.form.contatoSelecionado}" />
+		            </p:commandButton>
+	        	</p:column>
+	        
+			</p:dataTable>
+			
+			    <p:dialog header="Contato detalhe" widgetVar="contatoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+		        	<p:outputPanel id="contatoDetalhe" style="text-align:center;">
+		 
+		                <h:outputText value="Id:" />
+		                <h:outputText value="#{contatoAction.form.contatoSelecionado.nome}" />
+		 
+		        </p:outputPanel>
+		    </p:dialog>
+    
+    	</h:form>
 	</ui:define>
 
 	<ui:define name="bottom" />
