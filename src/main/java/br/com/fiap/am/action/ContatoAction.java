@@ -2,10 +2,8 @@ package br.com.fiap.am.action;
 
 import java.util.ArrayList;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.context.FacesContext;
 
 import br.com.fiap.am.bean.ContatoBean;
 import br.com.fiap.am.bean.UsuarioBean;
@@ -30,21 +28,7 @@ public class ContatoAction {
 
 
 	public void salvarContato(){
-		FacesContext context = FacesContext.getCurrentInstance();
-        String titulo = "", msg = ""; 
-		
-		try {
-			new ContatoDAO().insert(form.getContato());
-			titulo = "Contato inserido com sucesso!";
-			msg = "Obrigado pelo contato.";
-			form.limpar();
-		}
-		catch(Exception e){
-			titulo = "Erro ao fazer contato.";
-			msg = e.getMessage();
-		}
-		
-		context.addMessage(null, new FacesMessage(titulo, msg));
+		new ContatoDAO().insert(form.getContato());
 	}
 
 	public void listarContatos(){
