@@ -25,12 +25,7 @@ public class ContatoAction {
 
 	public ContatoAction(){
 		form = new ContatoForm();
-		form.setContato(new ContatoBean());
-		form.setContatos(new ArrayList<ContatoBean>());
-		//form.setContatoSelecionado(new ContatoBean());
 	}
-
-
 
 	public void salvarContato(){
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -51,7 +46,9 @@ public class ContatoAction {
 	}
 
 	public void listarContatos(){
-		form.setContatos(new ContatoDAO().list());
+		if(!FacesContext.getCurrentInstance().isPostback()){
+			form.setContatos(new ContatoDAO().list());
+		}
 	}
 
 

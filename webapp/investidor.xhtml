@@ -9,6 +9,61 @@
 	</ui:define>
 
 	<ui:define name="cabecalho">Seja um investidor</ui:define>
-	<ui:define name="descricao">Gostou da nossa startup? Nos ajude fazendo seu cadastro</ui:define>
+	<ui:define name="descricao">Gostou da nossa startup? Nos ajude fazendo seu cadastro <br />e acompanhe o andamento de nosso projeto.</ui:define>
 
+	<ui:define name="conteudo">
+		 <section id="contact-page">
+		     <h:form id="formContato">
+		     	<p:growl id="mensagem" showDetail="true" sticky="false" life="3000" globalOnly="true"/>
+		        <div class="container">
+
+					<div class="row contact-wrap">
+						<div class="col-sm-4 col-sm-offset-1">
+							<div class="form-group">
+								<label>Email* </label>
+								<p:inputText id="email" style="width: 100%;" value="#{investidorAction.form.usuario.nome}"
+												required="true" requiredMessage="Email é obrigatório"/>
+								<p:message for="email"></p:message>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>Senha* </label>
+								<p:inputText style="width: 100%;"></p:inputText>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label>Confirmação de senha* </label>
+								<p:inputText style="width: 100%;"></p:inputText>
+							</div>
+						</div>
+					</div>
+
+					<div class="row contact-wrap">
+						<div class="col-sm-5 col-sm-offset-1">
+							<div class="form-group">
+								<label>Nome* </label>
+								<p:inputText style="width: 100%;"></p:inputText>
+							</div>
+						</div>
+						<div class="col-sm-5">
+							<div class="form-group">
+								<label>Sobrenome </label>
+								<p:inputText style="width: 100%;"></p:inputText>
+							</div>
+						</div>
+					</div>
+					<div class="row contact-wrap">
+						<div class="col-sm-2 col-sm-offset-1">
+							<div class="form-group">
+	                        	<p:commandButton value="Enviar mensagem" styleClass="btn btn-primary btn-lg" update=":formContato"></p:commandButton>
+		                    </div>
+	                    </div>
+                    </div>
+
+		        </div><!--/.container-->
+	        </h:form>
+	    </section><!--/#contact-page-->
+	</ui:define>
 </ui:composition>

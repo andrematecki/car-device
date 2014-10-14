@@ -6,6 +6,7 @@ import br.com.fiap.am.sqlhelper.IDao;
 
 public class ContatoBean implements IDao {
 
+	private int id;
 	private String nome;
 	private String email;
 	private String telefone;
@@ -59,6 +60,12 @@ public class ContatoBean implements IDao {
 		titulo = dados.get("TITULO") != null ? dados.get("TITULO").toString() : null;
 		mensagem = dados.get("MSG") != null ? dados.get("MSG").toString() : null;
 
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

@@ -9,7 +9,18 @@
 	</f:metadata>
 
 	<ui:define name="head">
+		<style>
 
+			.tabela tr td:nth-child(1){
+				text-align: left;
+				font-weight: bold;
+			}
+
+			.tabela tr td{
+				padding: 10px;
+			}
+
+		</style>
 	</ui:define>
 
 	<ui:define name="cabecalho">Contatos</ui:define>
@@ -45,8 +56,7 @@
 		        	<p:outputPanel id="contatoDetalhe">
 
 
-
-						<table>
+						<table class="tabela">
 							<tr>
 								<td><h:outputText value="Nome:" /></td>
 								<td><h:outputText value="#{contatoAction.form.contatoSelecionado.nome}" /></td>

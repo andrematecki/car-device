@@ -9,6 +9,10 @@ public class ContatoForm {
 	private ContatoBean contato;
 	private ContatoBean contatoSelecionado;
 
+	public ContatoForm(){
+		contato = new ContatoBean();
+	}
+
 	public void limpar(){
 		contatos = null;
 		contato.setNome(null);
