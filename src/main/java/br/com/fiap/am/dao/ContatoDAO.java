@@ -3,7 +3,6 @@ package br.com.fiap.am.dao;
 import java.util.ArrayList;
 
 import br.com.fiap.am.bean.ContatoBean;
-import br.com.fiap.am.form.ContatoForm;
 import br.com.fiap.am.sqlhelper.Parametro;
 import br.com.fiap.am.sqlhelper.SqlHelper;
 

@@ -38,7 +38,7 @@ public class LoginAction {
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Ben vindo ", form.getLogin());
 
             UsuarioBean bean = new UsuarioBean();
-			bean.setNome(form.getLogin());
+		//	bean.setNome(form.getLogin());
 
 			login.setLogged(true);
 			login.setUsuario(bean);
