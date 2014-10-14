@@ -1,10 +1,11 @@
 package br.com.fiap.am.bean;
 
-public class InvestidorBean {
+public class InvestidorBean extends UsuarioBean{
 
 	private int id;
 	private String nome;
 	private String sobrenome;
+
 
 	public int getId() {
 		return id;

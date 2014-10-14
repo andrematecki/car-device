@@ -21,21 +21,28 @@
 						<div class="col-sm-4 col-sm-offset-1">
 							<div class="form-group">
 								<label>Email* </label>
-								<p:inputText id="email" style="width: 100%;" value="#{investidorAction.form.usuario.nome}"
-												required="true" requiredMessage="Email é obrigatório"/>
+								<p:inputText id="email" style="width: 100%;" value="#{investidorAction.form.investidor.email}"
+												required="true" requiredMessage="Email é obrigatório"
+												validatorMessage="Email inválido">
+									<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+								</p:inputText>
 								<p:message for="email"></p:message>
 							</div>
 						</div>
 						<div class="col-sm-3">
 							<div class="form-group">
 								<label>Senha* </label>
-								<p:inputText style="width: 100%;"></p:inputText>
+								<p:password id="senha" style="width: 100%;" value="#{investidorAction.form.investidor.senha}"
+										/>
+								<p:message for="senha"/>
 							</div>
 						</div>
 						<div class="col-sm-3">
 							<div class="form-group">
 								<label>Confirmação de senha* </label>
-								<p:inputText style="width: 100%;"></p:inputText>
+								<p:password id="repetirSenha" style="width: 100%;" value="#{investidorAction.form.investidor.repetirSenha}"
+									required="true" requiredMessage="Confirmação de senha obrigatório"/>
+								<p:message for="repetirSenha"/>
 							</div>
 						</div>
 					</div>
@@ -44,20 +51,23 @@
 						<div class="col-sm-5 col-sm-offset-1">
 							<div class="form-group">
 								<label>Nome* </label>
-								<p:inputText style="width: 100%;"></p:inputText>
+								<p:inputText id="nome" style="width: 100%;" value="#{investidorAction.form.investidor.nome}"
+								 	required="true" requiredMessage="Nome é obrigatório" />
+								<p:message for="nome" />
 							</div>
 						</div>
 						<div class="col-sm-5">
 							<div class="form-group">
 								<label>Sobrenome </label>
-								<p:inputText style="width: 100%;"></p:inputText>
+								<p:inputText style="width: 100%;" value="#{investidorAction.form.investidor.sobrenome}" />
 							</div>
 						</div>
 					</div>
 					<div class="row contact-wrap">
 						<div class="col-sm-2 col-sm-offset-1">
 							<div class="form-group">
-	                        	<p:commandButton value="Enviar mensagem" styleClass="btn btn-primary btn-lg" update=":formContato"></p:commandButton>
+	                        	<p:commandButton value="Enviar mensagem" styleClass="btn btn-primary btn-lg" update=":formContato"
+	                        		action="#{investidorAction.inserirInvestidor}"/>
 		                    </div>
 	                    </div>
                     </div>

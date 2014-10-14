@@ -11,7 +11,9 @@ public enum UsuarioTipoEnum {
 		this.tipo = tipo;
 	}
 
-	public String getPreco(){
+	public String getTipo(){
 		return this.tipo;
 	}
+
+
 }
