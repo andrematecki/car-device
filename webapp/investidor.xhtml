@@ -22,9 +22,8 @@
 							<div class="form-group">
 								<label>Email* </label>
 								<p:inputText id="email" style="width: 100%;" value="#{investidorAction.form.investidor.email}"
-												required="true" requiredMessage="Email é obrigatório"
-												validatorMessage="Email inválido">
-									<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+												required="true" requiredMessage="Email é obrigatório" >
+									<f:validator validatorId="validator.email" />
 								</p:inputText>
 								<p:message for="email"></p:message>
 							</div>
@@ -33,15 +32,19 @@
 							<div class="form-group">
 								<label>Senha* </label>
 								<p:password id="senha" style="width: 100%;" value="#{investidorAction.form.investidor.senha}"
-										/>
+								required="true" requiredMessage="Senha obrigatório"
+								match="repetirSenha" validatorMessage="Senhas devem ser iguais">
+								</p:password>
 								<p:message for="senha"/>
 							</div>
 						</div>
 						<div class="col-sm-3">
 							<div class="form-group">
 								<label>Confirmação de senha* </label>
-								<p:password id="repetirSenha" style="width: 100%;" value="#{investidorAction.form.investidor.repetirSenha}"
-									required="true" requiredMessage="Confirmação de senha obrigatório"/>
+								<p:password id="repetirSenha" style="width: 100%;" value="#{investidorAction.form.investidor.senha}"
+									required="true" requiredMessage="Confirmação de senha obrigatório" validatorMessage="Senha deve ter no minimo 6 digitos">
+										<f:validateLength minimum="6" />
+									</p:password>
 								<p:message for="repetirSenha"/>
 							</div>
 						</div>
@@ -66,7 +69,7 @@
 					<div class="row contact-wrap">
 						<div class="col-sm-2 col-sm-offset-1">
 							<div class="form-group">
-	                        	<p:commandButton value="Enviar mensagem" styleClass="btn btn-primary btn-lg" update=":formContato"
+	                        	<p:commandButton value="Cadastrar" styleClass="btn btn-primary btn-lg" update=":formContato"
 	                        		action="#{investidorAction.inserirInvestidor}"/>
 		                    </div>
 	                    </div>

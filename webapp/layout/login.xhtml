@@ -11,11 +11,11 @@
 
 	    <p:dialog header="Login" widgetVar="dlg" resizable="false" modal="true">
 	        <h:panelGrid columns="2" cellpadding="5">
-	            <h:outputLabel for="username" value="Username:" />
-	            <p:inputText id="username" value="#{loginAction.form.login}" required="true" label="username" requiredMessage="Login obrigatório"/>
+	            <h:outputLabel for="username" value="Email:" />
+	            <p:inputText id="username" value="#{loginAction.form.usuario.email}" required="true" requiredMessage="Login obrigatório" />
 
-	            <h:outputLabel for="password" value="Password:" />
-	            <p:password id="password" value="#{loginAction.form.senha}" required="true" label="password" requiredMessage="Senha obrigatória" />
+	            <h:outputLabel for="password" value="Senha:" />
+	            <p:password id="password" value="#{loginAction.form.usuario.senha}" required="true" requiredMessage="Senha obrigatória" />
 
 	            <f:facet name="footer">
 	                <p:commandButton value="Login" update="growl" actionListener="#{loginAction.login}"

@@ -1,22 +1,23 @@
 package br.com.fiap.am.form;
 
+import br.com.fiap.am.bean.UsuarioBean;
+
 public class LoginForm {
-	
-	private String login;
-	private String senha;
-	
-	public String getLogin() {
-		return login;
+
+	private UsuarioBean usuario;
+
+
+	public LoginForm() {
+		this.usuario = new UsuarioBean();
 	}
-	public void setLogin(String login) {
-		this.login = login;
+
+	public UsuarioBean getUsuario() {
+		return usuario;
 	}
-	public String getSenha() {
-		return senha;
+
+	public void setUsuario(UsuarioBean usuario) {
+		this.usuario = usuario;
 	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	
-	
+
+
 }

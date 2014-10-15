@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.primefaces.context.RequestContext;
 
 import br.com.fiap.am.bean.UsuarioBean;
+import br.com.fiap.am.dao.UsuarioDAO;
 import br.com.fiap.am.form.LoginForm;
 import br.com.fiap.am.session.LoginSession;
 
@@ -33,15 +34,14 @@ public class LoginAction {
         FacesMessage message = null;
         boolean loggedIn = false;
 
-        if(form.getLogin() != null && form.getLogin().equals("admin") && form.getSenha() != null && form.getSenha().equals("admin")) {
-            loggedIn = true;
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Ben vindo ", form.getLogin());
+        UsuarioBean usuario = new UsuarioDAO().select(form.getUsuario());
 
-            UsuarioBean bean = new UsuarioBean();
-		//	bean.setNome(form.getLogin());
+        if(null != usuario) {
+            loggedIn = true;
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Ben vindo!", null);
 
 			login.setLogged(true);
-			login.setUsuario(bean);
+			login.setUsuario(usuario);
 
         } else {
             loggedIn = false;

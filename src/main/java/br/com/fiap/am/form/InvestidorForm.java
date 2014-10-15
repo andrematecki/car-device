@@ -11,6 +11,10 @@ public class InvestidorForm {
 		investidor = new InvestidorBean();
 	}
 
+	public void limpar(){
+		investidor = new InvestidorBean();
+	}
+
 	public InvestidorBean getInvestidor() {
 		return investidor;
 	}

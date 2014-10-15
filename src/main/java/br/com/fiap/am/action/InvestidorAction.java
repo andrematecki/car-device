@@ -1,9 +1,12 @@
 package br.com.fiap.am.action;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.fiap.am.bo.InvestidorBO;
+import br.com.fiap.am.dao.ContatoDAO;
 import br.com.fiap.am.form.InvestidorForm;
 
 @ManagedBean
@@ -17,7 +20,20 @@ public class InvestidorAction {
 	}
 
 	public void inserirInvestidor(){
-		new InvestidorBO().insert(form.getInvestidor());
+		FacesContext context = FacesContext.getCurrentInstance();
+        String titulo = "", msg = "";
+
+		try {
+			new InvestidorBO().insert(form.getInvestidor());
+			titulo = "Investidor inserido com sucesso!";
+			form.limpar();
+		}
+		catch(Exception e){
+			titulo = "Erro ao inserir investidor";
+			msg = e.getMessage();
+		}
+
+		context.addMessage(null, new FacesMessage(titulo, msg));
 	}
 
 	public InvestidorForm getForm() {

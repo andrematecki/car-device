@@ -1,5 +1,7 @@
 package br.com.fiap.am.dao;
 
+import javax.swing.text.StyledEditorKit.BoldAction;
+
 import br.com.fiap.am.bean.UsuarioBean;
 import br.com.fiap.am.enums.UsuarioTipoEnum;
 import br.com.fiap.am.sqlhelper.Parametro;
@@ -33,5 +35,18 @@ public class UsuarioDAO {
 		};
 
 		return helper.executeObject(cmd, param, UsuarioBean.class);
+	}
+
+	public boolean usuarioExiste(String email){
+		String cmd = "SELECT ID, EMAIL, SENHA, TIPO FROM AM_USUARIO WHERE EMAIL = ?";
+
+		Parametro[] param = {
+				new Parametro(1, email)
+		};
+
+		if(null == helper.executeObject(cmd, param, UsuarioBean.class)){
+			return false;
+		}
+		return true;
 	}
 }

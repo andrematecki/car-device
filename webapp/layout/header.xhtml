@@ -72,10 +72,10 @@
 	                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrativo<i class="fa fa-angle-down"></i></a>
 	                            <ul class="dropdown-menu">
 	                            	<li><h:link outcome="/private/home">Inicio</h:link></li>
-	                                <li><h:link outcome="/private/contatos">Contatos</h:link></li>
-	                                <li><h:link outcome="/private/feed">Noticias</h:link></li>
-	                                <li><h:link outcome="/private/investidores">Investidores</h:link></li>
-	                                <li><h:link outcome="/private/status">Status</h:link></li>
+	                                <li><h:link outcome="/private/contatos" rendered="#{loginSession.usuario.tipo.tipo eq 'ADM'}">Contatos</h:link></li>
+	                                <li><h:link outcome="/private/feed" rendered="#{loginSession.usuario.tipo.tipo eq 'ADM'}">Noticias</h:link></li>
+	                                <li><h:link outcome="/private/investidores" rendered="#{loginSession.usuario.tipo.tipo eq 'ADM'}">Investidores</h:link></li>
+	                                <li><h:link outcome="/private/status" rendered="#{loginSession.usuario.tipo.tipo eq 'ADM'}">Status</h:link></li>
 	                            </ul>
 	                       	</li>
                        	</h:panelGroup>
