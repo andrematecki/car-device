@@ -4,7 +4,33 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
 
-	<ui:define name="cabecalho"></ui:define>
-	<ui:define name="descricao"></ui:define>
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{investidorAction.listarInvestidores}" />
+	</f:metadata>
+
+	<ui:define name="cabecalho">Investidores</ui:define>
+	<ui:define name="descricao">Aqui você pode ver a lista de investidores que se interessaram pelo produto</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form id="formInvestidores">
+
+			<p:dataTable var="invest" value="#{investidorAction.form.investidores}">
+
+			    <p:column headerText="Nome">
+			        <h:outputText value="#{invest.nome}" />
+			    </p:column>
+
+				<p:column headerText="Sobrenome">
+			        <h:outputText value="#{invest.sobrenome}" />
+			    </p:column>
+
+				<p:column headerText="Email">
+			        <h:outputText value="#{invest.email}" />
+			    </p:column>
+
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
 
 </ui:composition>

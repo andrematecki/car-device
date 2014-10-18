@@ -7,6 +7,7 @@ import javax.faces.context.FacesContext;
 
 import br.com.fiap.am.bo.InvestidorBO;
 import br.com.fiap.am.dao.ContatoDAO;
+import br.com.fiap.am.dao.InvestidorDAO;
 import br.com.fiap.am.form.InvestidorForm;
 
 @ManagedBean
@@ -35,6 +36,13 @@ public class InvestidorAction {
 
 		context.addMessage(null, new FacesMessage(titulo, msg));
 	}
+
+	public void listarInvestidores(){
+		if(!FacesContext.getCurrentInstance().isPostback()){
+			form.setInvestidores(new InvestidorDAO().list());
+		}
+	}
+
 
 	public InvestidorForm getForm() {
 		return form;
