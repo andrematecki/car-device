@@ -4,7 +4,63 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
 
-	<ui:define name="cabecalho"></ui:define>
-	<ui:define name="descricao"></ui:define>
+	<ui:define name="cabecalho">Status do projeto</ui:define>
+	<ui:define name="descricao">Aqui você pode inserir targets do projeto para que os investidores <br /> possam acompanhar com esta o andamento do projeto</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form id="formStatus">
+
+			<p:growl id="mensagem" showDetail="true" sticky="false" life="3000" globalOnly="true"/>
+	        <div class="container">
+
+				<div class="row contact-wrap">
+					<div class="col-sm-2 col-sm-offset-1">
+						<div class="form-group">
+							<label>Data* </label>
+							<p:calendar id="data" style="width: 100%;"  value="#{statusAction.form.data}"
+											required="true" requiredMessage="Data é obrigatório"  converterMessage="Data em formato incorreto. Exemplo: 18/10/2014">
+							</p:calendar>
+							<p:message for="data"></p:message>
+						</div>
+					</div>
+				</div>
+
+				<div class="row contact-wrap">
+					<div class="col-sm-11 col-sm-offset-1">
+						<div class="form-group">
+							<label>Target* </label>
+							<p:inputText id="target" style="width: 100%;" value="#{statusAction.form.status.target}"
+							 	required="true" requiredMessage="Target é obrigatório" />
+							<p:message for="target" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row contact-wrap">
+					<div class="col-sm-11 col-sm-offset-1">
+						<div class="form-group">
+							<label>Descrição* </label>
+							<p:inputTextarea id="descricao" style="width: 100%;" value="#{statusAction.form.status.descricao}"
+							 	required="true" requiredMessage="Descrição é obrigatório" />
+							<p:message for="descricao" />
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row contact-wrap">
+					<div class="col-sm-2 col-sm-offset-1">
+						<div class="form-group">
+                        	<p:commandButton value="Cadastrar" styleClass="btn btn-primary btn-lg" update=":formStatus"
+                        		action="#{statusAction.inserirStatus}"/>
+	                    </div>
+                    </div>
+                 </div>
+
+	        </div><!--/.container-->
+		</h:form>
+	</ui:define>
+
+	<ui:define name="bottom" />
 
 </ui:composition>
