@@ -1,6 +1,7 @@
 package br.com.fiap.am.bean;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import br.com.fiap.am.sqlhelper.IDao;
@@ -47,7 +48,7 @@ public class StatusBean implements IDao {
 	@Override
 	public void bind(HashMap<String, Object> dados) {
 		id = dados.get("ID") != null ? Integer.parseInt(dados.get("ID").toString()) : null;
-		data = dados.get("DATA") != null ? DateUtil.getCalendar(dados.get("DATA").toString()) : null;
+		data = dados.get("DATA") != null ? DateUtil.getCalendar((Date)dados.get("DATA")) : null;
 		target = dados.get("TARGET") != null ? dados.get("TARGET").toString() : null;
 		setDescricao(dados.get("DESCRICAO") != null ? dados.get("DESCRICAO").toString() : null);
 

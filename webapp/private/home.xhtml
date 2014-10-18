@@ -1,10 +1,23 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition template="/layout/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
 
-	<ui:define name="cabecalho"></ui:define>
-	<ui:define name="descricao"></ui:define>
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{statusAction.listarStatus}" />
+	</f:metadata>
 
+	<ui:define name="cabecalho">Time Line do projeto</ui:define>
+	<ui:define name="descricao">Acompanhe os principais marcos do projeto</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form id="formHomePrivate">
+			<pe:timeline value="#{statusAction.form.model}" height="300px"/>
+		</h:form>
+	</ui:define>
+
+	
 </ui:composition>

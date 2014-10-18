@@ -1,5 +1,7 @@
 package br.com.fiap.am.dao;
 
+import java.util.List;
+
 import br.com.fiap.am.bean.StatusBean;
 import br.com.fiap.am.sqlhelper.Parametro;
 import br.com.fiap.am.sqlhelper.SqlHelper;
@@ -22,6 +24,11 @@ public class StatusDAO {
 		};
 
 		return helper.executeUpdate(cmd, param);
+	}
+
+	public List<StatusBean> list(){
+		String cmd = "SELECT ID, DATA, TARGET, DESCRICAO FROM AM_STATUS";
+		return helper.executeCollection(cmd, StatusBean.class);
 	}
 
 }

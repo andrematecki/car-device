@@ -1,10 +1,16 @@
 package br.com.fiap.am.action;
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.extensions.model.timeline.TimelineEvent;
+import org.primefaces.extensions.model.timeline.TimelineModel;
+
+import br.com.fiap.am.bean.StatusBean;
 import br.com.fiap.am.bo.InvestidorBO;
 import br.com.fiap.am.dao.StatusDAO;
 import br.com.fiap.am.form.StatusForm;
@@ -37,6 +43,24 @@ public class StatusAction {
 		}
 
 		context.addMessage(null, new FacesMessage(titulo, msg));
+	}
+
+	public void listarStatus(){
+		if(!FacesContext.getCurrentInstance().isPostback()){
+			List<StatusBean> list = new StatusDAO().list();
+			form.setModel(getModel(list));
+
+		}
+	}
+
+	private TimelineModel getModel(List<StatusBean> list) {
+		TimelineModel model = new TimelineModel();
+
+		for(StatusBean s : list){
+			model.add(new TimelineEvent(s.getTarget(), s.getData().getTime()));
+		}
+
+		return model;
 	}
 
 
