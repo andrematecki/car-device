@@ -4,7 +4,55 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
 
-	<ui:define name="cabecalho"></ui:define>
-	<ui:define name="descricao"></ui:define>
+	<ui:define name="cabecalho">Noticias</ui:define>
+	<ui:define name="descricao">Aqui você poderá escrever qualquer coisa a respeito do projto <br />
+	onde qualquer um que acessar o site poderá ver.</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form id="formNoticia">
+
+			<p:growl id="mensagem" showDetail="true" sticky="false" life="3000" globalOnly="true"/>
+	        <div class="container">
+
+				<div class="row contact-wrap">
+					<div class="col-sm-11 col-sm-offset-1">
+						<div class="form-group">
+							<label>Título* </label>
+							<p:inputText id="titulo" style="width: 100%;" value="#{noticiaAction.form.noticia.titulo}"
+							 	required="true" requiredMessage="Titulo é obrigatório" />
+							<p:message for="titulo" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row contact-wrap">
+					<div class="col-sm-11 col-sm-offset-1">
+						<div class="form-group">
+							<label>Notícia* </label>
+							<p:inputTextarea id="noticia" style="width: 100%;" value="#{noticiaAction.form.noticia.noticia}"
+							 	required="true" requiredMessage="Notícia é obrigatório" />
+							<p:message for="noticia" />
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row contact-wrap">
+					<div class="col-sm-2 col-sm-offset-1">
+						<div class="form-group">
+                        	<p:commandButton value="Cadastrar" styleClass="btn btn-primary btn-lg" update=":formNoticia"
+                        		action="#{noticiaAction.inserirNoticia}"
+                        	 />
+	                    </div>
+                    </div>
+                 </div>
+
+	        </div><!--/.container-->
+		</h:form>
+	</ui:define>
+
+	<ui:define name="bottom" />
+
+
 
 </ui:composition>

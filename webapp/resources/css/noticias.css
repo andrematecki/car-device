@@ -1,0 +1,11 @@
+.impar, .par{
+	padding-bottom: 70px;
+}
+
+.par{
+	background: #F2F2F2;
+}
+
+.titulo{
+	padding-top: 40px;
+}

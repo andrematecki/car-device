@@ -4,11 +4,40 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
 
+	<ui:define name="head">
+		<h:outputStylesheet name="noticias.css" library="css" />
+	</ui:define>
+
 	<ui:define name="menuFeed">
 		<li class="active"><h:link outcome="/feed">Noticias</h:link></li>
 	</ui:define>
 
-	<ui:define name="cabecalho">Notícias</ui:define>
-	<ui:define name="descricao">Acompanhe as novidades do projeto</ui:define>
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{noticiaAction.listarNoticias}" />
+	</f:metadata>
+
+	<ui:define name="conteudoHome">
+
+
+		<div class="center wow fadeInDown titulo">
+			<h2>Notícias</h2>
+			<p class="lead">Acompanhe as novidades do projeto</p>
+		</div>
+
+
+		<ui:repeat var="noticia" value="#{noticiaAction.form.noticias}" varStatus="item">
+
+	    	<section class="#{item.index % 2 == 0 ? 'par' : 'impar'}" >
+		        <div class="container">
+		           <div class="center wow fadeInDown">
+		                <h2>#{noticia.titulo}</h2>
+		                <p class="lead"><h:outputText value="#{noticia.noticia}" escape="false" /> </p>
+		            </div>
+	            </div>
+			</section>
+
+		</ui:repeat>
+
+	</ui:define>
 
 </ui:composition>
