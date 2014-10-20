@@ -14,7 +14,91 @@
 	    </li>
 	</ui:define>
 
-	<ui:define name="cabecalho">A empresa</ui:define>
-	<ui:define name="descricao">Quem somos? Missão, visão e valores</ui:define>
+	
+	<ui:define name="conteudoHome">
+		<section id="portfolio">
+        <div class="container">
+            <div class="center">
+               <h2>Quem Somos</h2>
+               <p class="lead">A Car Device é uma empresa fundada em 2014 que desenvolve sistema para o <br /> controle automotivo no intuito de facilitar o monitoramento do carro.
+               <br /><br />Nosso diferencial é a possibilidade de instalar o sistema no carro e as <br />atualizações feitas serão passadas via Bluetooth para o SmartPhone além da <br />possibilidade de visualiza-las via Web.</p>
+            </div>
+        
+
+            <ul class="portfolio-filter text-center">
+                <li><a class="btn btn-default active" href="#" data-filter="*">Integrantes</a></li>
+                <li><a class="btn btn-default" href="#" data-filter=".desenvolvimento">Desenvolvimento</a></li>
+                <li><a class="btn btn-default" href="#" data-filter=".marketing">Marketing</a></li>
+                <li><a class="btn btn-default" href="#" data-filter=".pesquisa">Pesquisa</a></li>
+            </ul><!--/#portfolio-filter-->
+
+            <div class="row">
+                <div class="portfolio-items">
+                
+                    <div class="portfolio-item desenvolvimento pesquisa apps col-xs-12 col-sm-4 col-md-3">
+                        <div class="recent-work-wrap">
+                        	<p:graphicImage library="images/portfolio/full" name="item1.jpg" width="290px" height="220px" />
+                            <div class="overlay">
+                                <div class="recent-work-inner">
+                                    <h3><a href="#">André Matecki</a></h3>
+                                    <p>Desenvolvedor Java, colabora também com a pesquisa de novas tecnologias</p>
+                                </div> 
+                            </div>
+                        </div>
+                    </div><!--/.portfolio-item-->
+
+                    <div class="portfolio-item marketing pesquisa col-xs-12 col-sm-4 col-md-3">
+                        <div class="recent-work-wrap">
+                            <p:graphicImage library="images/portfolio/full" name="item2.jpg" width="290px" height="220px" />
+                            <div class="overlay">
+                                <div class="recent-work-inner">
+                                    <h3><a href="#">Vinicius Sanfilippo</a></h3>
+                                    <p>Pesquisador, colabora também com o marketing</p>
+                                </div> 
+                            </div>
+                        </div>          
+                    </div><!--/.portfolio-item-->
+
+                    <div class="portfolio-item marketing col-xs-12 col-sm-4 col-md-3">
+                        <div class="recent-work-wrap">
+							<p:graphicImage library="images/portfolio/full" name="item3.jpg" width="290px" height="220px" />
+                            <div class="overlay">
+                                <div class="recent-work-inner">
+                                    <h3><a href="#">Bruna Tashima</a></h3>
+                                    <p>Desenvolvedora de textos publicitarios e formatação de documentos</p>
+                                </div> 
+                            </div>
+                        </div>        
+                    </div><!--/.portfolio-item-->
+
+                    <div class="portfolio-item pesquisa apps col-xs-12 col-sm-4 col-md-3">
+                        <div class="recent-work-wrap">
+                            <p:graphicImage library="images/portfolio/full" name="item4.jpg" width="290px" height="220px" />
+                            <div class="overlay">
+                                <div class="recent-work-inner">
+                                    <h3><a href="#">Theo Goulart</a></h3>
+                                    <p>Pesquisador, colabora com o aprendizado de novas tecnologias</p>
+                                </div> 
+                            </div>
+                        </div>           
+                    </div><!--/.portfolio-item-->
+          
+                    <div class="portfolio-item desenvolvimento marketing col-xs-12 col-sm-4 col-md-3">
+                        <div class="recent-work-wrap">
+							<p:graphicImage library="images/portfolio/full" name="item5.jpg" width="290px" height="220px" />
+                            <div class="overlay">
+                                <div class="recent-work-inner">
+                                    <h3><a href="#">Victoria Emmanuel</a></h3>
+                                    <p>Administradora de banco de dados, colabora também com o marketing </p>
+                                </div> 
+                            </div>
+                        </div>      
+                    </div><!--/.portfolio-item-->
+                </div>
+            </div>
+        </div>
+    </section><!--/#portfolio-item-->
+	
+	</ui:define>
 
 </ui:composition>
