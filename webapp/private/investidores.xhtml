@@ -14,7 +14,7 @@
 	<ui:define name="conteudo">
 		<h:form id="formInvestidores">
 
-			<p:dataTable var="invest" value="#{investidorAction.form.investidores}">
+			<p:dataTable var="invest" value="#{investidorAction.form.investidores}" emptyMessage="Não foram encontrados registros">
 
 			    <p:column headerText="Nome">
 			        <h:outputText value="#{invest.nome}" />

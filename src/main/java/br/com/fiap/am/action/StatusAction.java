@@ -56,8 +56,10 @@ public class StatusAction {
 	private TimelineModel getModel(List<StatusBean> list) {
 		TimelineModel model = new TimelineModel();
 
-		for(StatusBean s : list){
-			model.add(new TimelineEvent(s.getTarget(), s.getData().getTime()));
+		if(list != null){
+			for(StatusBean s : list){
+				model.add(new TimelineEvent(s.getTarget(), s.getData().getTime()));
+			}
 		}
 
 		return model;

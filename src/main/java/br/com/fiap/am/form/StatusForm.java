@@ -2,6 +2,7 @@ package br.com.fiap.am.form;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.primefaces.extensions.model.timeline.TimelineModel;
 
@@ -13,6 +14,7 @@ public class StatusForm {
 	private Date data;
 	private List<StatusBean> listaStatus;
 	private TimelineModel model;
+	private Locale locale = new Locale("pt", "BR");
 
 	public StatusForm(){
 		status = new StatusBean();
@@ -21,6 +23,10 @@ public class StatusForm {
 	public void limpar(){
 		status = new StatusBean();
 		setData(null);
+	}
+
+	public Locale getLocale(){
+		return locale;
 	}
 
 	public StatusBean getStatus() {
@@ -49,4 +55,5 @@ public class StatusForm {
 	public void setModel(TimelineModel model) {
 		this.model = model;
 	}
+
 }

@@ -29,7 +29,7 @@
 	<ui:define name="conteudo">
 		<h:form id="formContatos">
 
-			<p:dataTable var="contato" value="#{contatoAction.form.contatos}">
+			<p:dataTable var="contato" value="#{contatoAction.form.contatos}" emptyMessage="Não foram encontrados registros">
 
 			    <p:column headerText="Nome">
 			        <h:outputText value="#{contato.nome}" />
